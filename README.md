@@ -1,1 +1,1 @@
-# AssingnmentsDay01
+# JavaScript Assignments
