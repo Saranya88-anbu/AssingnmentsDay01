@@ -1,15 +1,15 @@
-import{test} from "@playwright/test"
-test('create a lead using css selectors',async({page})=>{
+import { test } from "@playwright/test"
+test('create a lead using css selectors', async ({ page }) => {
     await page.goto('http://leaftaps.com/opentaps/control/main')
     await page.locator('#username').fill('democsr2')
     await page.locator('#password').fill('crmsfa')
     await page.locator('input[type="submit"]').click()
     await page.locator('text=CRM/SFA').click()
-    let pageTitle=await page.title()
+    let pageTitle = await page.title()
     console.log(pageTitle);
-    let pageUrl=await page.url()
+    let pageUrl = await page.url()
     console.log(pageUrl);
-    
+
     await page.locator('[href="/crmsfa/control/leadsMain"]').click()
     await page.locator('[href="/crmsfa/control/createLeadForm"]').click()
     await page.locator('#createLeadForm_companyName').fill('Amazon')
@@ -20,19 +20,19 @@ test('create a lead using css selectors',async({page})=>{
     await page.locator('#createLeadForm_annualRevenue').fill('50000')
     await page.locator('#createLeadForm_departmentName').fill('Testing')
 
-    
-     const sourceDropdown = page.locator('select[id="createLeadForm_dataSourceId"]');
-  
-     const sourceOptions = page.locator('select[id="createLeadForm_dataSourceId"]>option');
-     const optionCount = await sourceOptions.count();
-  
-       for (let i = 0; i < optionCount; i++) {
-           console.log(await sourceOptions.nth(i).innerText());
-     }
-  
-  await page.locator('input[id="createLeadForm_primaryPhoneNumber"]').fill("9687542323");
-  
-  await page.locator('.smallSubmit').click();
+
+    const sourceDropdown = page.locator('select[id="createLeadForm_dataSourceId"]');
+
+    const sourceOptions = page.locator('select[id="createLeadForm_dataSourceId"]>option');
+    const optionCount = await sourceOptions.count();
+
+    for (let i = 0; i < optionCount; i++) {
+        console.log(await sourceOptions.nth(i).innerText());
+    }
+
+    await page.locator('input[id="createLeadForm_primaryPhoneNumber"]').fill("9687542323");
+
+    await page.locator('.smallSubmit').click();
 })
 
 /*1. Navigate to the URL: http://leaftaps.com/opentaps/control/main
